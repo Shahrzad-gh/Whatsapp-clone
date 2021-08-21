@@ -4,7 +4,10 @@ import React, {useState} from 'react'
 import './Chat.css';
 import axios from './axios';
 
-function Chat({messages}) {
+function Chat(props) {
+  const {messages} = props
+  
+  console.log("m", messages)
   const [input, setInput] = useState("");
 
   const sendMessage = async (e) => {
@@ -42,7 +45,8 @@ function Chat({messages}) {
       </div>
       <div className="chat__body">
         {messages.map(message => (
-          <p key={message._id} className={`chat__message ${message.received && "chat__reciever"}`}>
+          
+          <p key={message._id} className={`chat__message ${message.received && "chat__receiver"}`}>
           <span className="chat__name">{message.name}</span>
   
          {message.message}
@@ -52,15 +56,7 @@ function Chat({messages}) {
           </span>
           </p>
         ))}
-        <p className="chat__message">
-        <span className="chat__name">Shery</span>
 
-        this is message
-
-        <span className="chat__timestamp">
-          {new Date().toUTCString()}
-        </span>
-        </p>
       </div>
       <div className="chat__footer">
         <InsertEmoticon />

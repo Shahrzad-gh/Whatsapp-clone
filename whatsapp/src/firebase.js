@@ -8,3 +8,12 @@ const firebaseConfig = {
   appId: "1:764792324870:web:301f2aa6097afc4ebcd487",
   measurementId: "G-EH1PZWED2X"
 };
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const db = firebase.auth();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+
+export {auth, provider};
+export default db;
